@@ -34,3 +34,11 @@ exports.stop = function(onfulfilled, onrejected) {
         onrejected(reason);
      }, 'TTS', 'stop', []);
 };
+
+exports.isSpeaking = function(onfulfilled, onrejected) {
+    cordova.exec(function (result) {
+        onfulfilled(result);
+    }, function(reason) {
+        onrejected(reason);
+     }, 'TTS', 'isSpeaking', []);
+};

@@ -72,4 +72,9 @@
 - (void)stop:(CDVInvokedUrlCommand*)command {
     [synthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
 }
+
+- (void)isSpeaking:(CDVInvokedUrlCommand*)command {
+  NSString *callbackId = [command callbackId];
+  CDVPluginResult *result = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:[synthesizer isSpeaking]];
+}
 @end

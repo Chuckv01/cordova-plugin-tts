@@ -71,6 +71,8 @@ public class TTS extends CordovaPlugin implements OnInitListener {
             speak(args, callbackContext);
         } else if (action.equals("stop")) {
             stop(args, callbackContext);
+        } else if (action.equals("isSpeaking")) {
+            isSpeaking(args, callbackContext);
         } else {
             return false;
         }
@@ -95,6 +97,12 @@ public class TTS extends CordovaPlugin implements OnInitListener {
     private void stop(JSONArray args, CallbackContext callbackContext)
       throws JSONException, NullPointerException {
         tts.stop();
+    }
+    
+    private void isSpeaking(JSONArray args, CallbackContext callbackContext)
+      throws JSONException, NullPointerException {
+        int retVal = (tts.isSpeaking()) ? 1 : 0;
+        callbackContext.success(retVal);
     }
     
     private void speak(JSONArray args, CallbackContext callbackContext)
