@@ -74,7 +74,9 @@
 }
 
 - (void)isSpeaking:(CDVInvokedUrlCommand*)command {
-  NSString *callbackId = [command callbackId];
+  NSString *callbackID = [command callbackId];
   CDVPluginResult *result = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:[synthesizer isSpeaking]];
+  [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+  callbackID = nil;
 }
 @end
