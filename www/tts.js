@@ -42,3 +42,11 @@ exports.isSpeaking = function(onfulfilled, onrejected) {
         onrejected(reason);
      }, 'TTS', 'isSpeaking', []);
 };
+
+exports.clear = function(onfulfilled, onrejected) {
+    cordova.exec(function (result) {
+        onfulfilled(result);
+    }, function(reason) {
+        onrejected(reason);
+     }, 'TTS', 'clear', []);
+};
