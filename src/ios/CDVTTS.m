@@ -58,7 +58,7 @@
     rate = 1.0;
   }
   [self.commandDelegate runInBackground:^{
-    AVSpeechUtterance* utterance = [[AVSpeechUtterance new] initWithString:text];
+    AVSpeechUtterance* utterance = [AVSpeechUtterance speechUtteranceWithString:text];
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:locale];
     // Rate expression adjusted manually for a closer match to other platform.
     utterance.rate = (AVSpeechUtteranceMinimumSpeechRate * 1.5 + AVSpeechUtteranceDefaultSpeechRate) / 2.5 * rate * rate;
